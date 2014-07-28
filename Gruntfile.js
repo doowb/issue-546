@@ -67,7 +67,7 @@ module.exports = function(grunt) {
         assets: '<%= config.dist %>/assets',
         layout: '<%= config.src %>/responsive/layouts/layout.hbs',
         data: '<%= config.src %>/responsive/data/*.{json,yml}',
-        partials: '<%= config.src %>/responsive/partials/*.hbs',
+        partials: '<%= config.src %>/responsive/modules/*.hbs',
         flatten: false
       },
       pages: {
