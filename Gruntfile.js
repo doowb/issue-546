@@ -29,7 +29,7 @@ module.exports = function(grunt) {
 
     watch: {
       assemble: {
-        files: ['<%= config.src %>/{content,data,templates}/{,*/}*.{md,hbs,yml}'],
+        files: ['<%= config.src %>/responsive/{pages,data,layouts/modules}/{,*/}*.{md,hbs,yml,json}'],
         tasks: ['assemble']
       },
       livereload: {
@@ -63,23 +63,25 @@ module.exports = function(grunt) {
     },
 
     assemble: {
+      options: {
+        flatten: true,
+        assets: '<%= config.dist %>/assets',
+        layout: '<%= config.src %>/responsive/layouts/layout.hbs',
+        data: '<%= config.src %>/responsive/data/*.{json,yml}',
+        partials: '<%= config.src %>/responsive/partials/*.hbs',
+        flatten: false
+      },
       pages: {
-        options: {
-          flatten: true,
-          assets: '<%= config.dist %>/assets',
-          layout: '<%= config.src %>/templates/layouts/default.hbs',
-          data: '<%= config.src %>/data/*.{json,yml}',
-          partials: '<%= config.src %>/templates/partials/*.hbs'
-        },
-        files: {
-          '<%= config.dist %>/': ['<%= config.src %>/templates/pages/*.hbs']
-        }
+        expand: true,
+        cwd: '<%= config.src %>/responsive/pages',
+        src: '**/*.hbs',
+        dest: '<%= config.src/'
       }
     },
 
     // Before generating any new files,
     // remove any previously-created files.
-    clean: ['<%= config.dist %>/**/*.{html,xml}']
+    clean: ['<%= config.src %>/**/*.{html,xml}']
 
   });
 
