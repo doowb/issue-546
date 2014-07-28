@@ -74,7 +74,7 @@ module.exports = function(grunt) {
         expand: true,
         cwd: '<%= config.src %>/responsive/pages',
         src: '**/*.hbs',
-        dest: '<%= config.src/'
+        dest: '<%= config.src %>/'
       }
     },
 
