@@ -64,7 +64,6 @@ module.exports = function(grunt) {
 
     assemble: {
       options: {
-        flatten: true,
         assets: '<%= config.dist %>/assets',
         layout: '<%= config.src %>/responsive/layouts/layout.hbs',
         data: '<%= config.src %>/responsive/data/*.{json,yml}',
